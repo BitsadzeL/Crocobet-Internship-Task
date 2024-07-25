@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <app-header></app-header>
+    <div class="container">
+        <h2>Users</h2>
+        <button class="btn btn-primary" routerLink="/main">Back to main</button>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Website</th>
+                    <th>Address</th>
+                    <th>Company</th>
+                    <th>To-do</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.website }}</td>
+                    <td>
+                        {{ user.address.street }}, {{ user.address.suite }}<br>
+                        {{ user.address.city }}, {{ user.address.zipcode }}
+                    </td>
+                    <td>
+                        <strong>name:</strong>{{ user.company.name }}<br>
+                        <strong>catchPhrase:</strong>{{ user.company.catchPhrase }}<br>
+                        <strong>bs:</strong>{{ user.company.bs }}
+                    </td>
+
+                    <td>
+                        <button (click)="viewTodo(user.id)" class="btn btn-primary">View Todo</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <app-footer></app-footer>
+
+</body>
+
+</html>

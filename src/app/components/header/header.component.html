@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container header-container">
+    <div class="row">
+      <div class="col-12 col-md-6 d-flex align-items-center justify-content-start">
+        <a routerLink="/main" class="text-decoration-none">
+          <h1>Internship</h1>
+        </a>
+      </div>
+      <div class="col-12 col-md-6 d-flex align-items-center justify-content-end">
+        <p>{{ currentDate | date: 'fullDate' }} {{ currentDate | date: 'shortTime' }}</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

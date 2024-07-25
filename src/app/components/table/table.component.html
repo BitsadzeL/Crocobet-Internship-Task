@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2>Users and Posts</h2>
+            <input type="text" class="form-control w-50" placeholder="Search by name, surname, or email"
+                [(ngModel)]="searchQuery" (input)="filterUsers()" />
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Company</th>
+                    <th>Posts</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of filteredUsers">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.company.name }}</td>
+                    <td>
+                        <ol>
+                            <li *ngFor="let post of userPostsMap.get(user.id)">
+                                {{ post.title }}
+                            </li>
+                        </ol>
+                        <button class="btn btn-primary" [routerLink]="['/posts', user.id]">პოსტები</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</body>
+
+</html>

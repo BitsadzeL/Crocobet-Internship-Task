@@ -1,0 +1,14 @@
+.footer-container {
+    background-color: rgb(148, 164, 255);
+    padding: 20px;
+    bottom: 0;
+    width: 100%;
+    margin:0 auto;
+    position:static;
+    
+}
+
+.footer-text {
+    margin: 0 auto;
+}
+

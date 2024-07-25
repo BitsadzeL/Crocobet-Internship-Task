@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <app-header></app-header>
+    <div class="container">
+        <h2>All posts</h2>
+        <button class="btn btn-primary" routerLink="/main">Back to main</button>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Post ID</th>
+                    <th>Post Title</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let post of posts">
+                    <td>{{ post.id }}</td>
+                    <td>{{ post.title }}</td>
+                    <td>
+                        <button class="btn btn-success" (click)="selectPost(post)">დეტალურად</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <div class="popup" *ngIf="selectedPost">
+        <div class="popup-content">
+            <h3>Post Details</h3>
+            <p><strong>Post ID:</strong> {{ selectedPost.id }}</p>
+            <p><strong>user ID:</strong> {{ selectedPost.userId }}</p>
+            <p><strong>Title:</strong> {{ selectedPost.title }}</p>
+            <p><strong>Body:</strong> {{ selectedPost.body }}</p>
+            <button class="btn btn-secondary" (click)="clearSelection()">Close</button>
+        </div>
+    </div>
+
+    <app-footer></app-footer>
+
+
+</body>
+
+</html>

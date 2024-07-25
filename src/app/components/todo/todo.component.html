@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <app-header></app-header>
+    <div class="container">
+        <h2>To-do List</h2>
+        <button class="btn btn-primary" routerLink="/allUsers">Back to users' page</button>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Completed</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let todo of todoList">
+                    <td [class.completed-task]="todo.completed==true">{{ todo.id }}</td>
+                    <td [class.completed-task]="todo.completed==true">{{ todo.title }}</td>
+                    <td [class.completed-task]="todo.completed==true"> {{ todo.completed ? 'Yes' : 'No' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <app-footer></app-footer>
+</body>
+
+</html>
